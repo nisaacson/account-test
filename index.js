@@ -36,8 +36,9 @@ module.exports = function (account, data) {
     this.timeout(0)
     account.register(data, function (err, reply) {
       should.not.exist(err, 'error registering user account: ' + JSON.stringify(err, null, ' '))
-      account.serializeUser(data, function (err, reply) {
+      account.serializeUser(data, function (err, id) {
         should.not.exist(err, 'error when performing serialize user account: ' + JSON.stringify(err, null, ' '))
+        should.exist(id, 'serializeUser should return an id')
         done()
       })
     })
@@ -48,6 +49,7 @@ module.exports = function (account, data) {
     account.register(data, function (err, reply) {
       should.not.exist(err, 'error registering user account: ' + JSON.stringify(err, null, ' '))
       account.serializeUser(data, function (err, id) {
+        should.exist(id, 'serializeUser should return an id')
         account.deserializeUser(id, function (err, reply) {
           should.not.exist(err, 'error when performing serialize user account: ' + JSON.stringify(err, null, ' '))
           done()

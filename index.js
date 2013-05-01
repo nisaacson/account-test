@@ -36,7 +36,8 @@ module.exports = function (account, data) {
     this.timeout(0)
     account.register(data, function (err, reply) {
       should.not.exist(err, 'error registering user account: ' + JSON.stringify(err, null, ' '))
-      account.serializeUser(data, function (err, id) {
+      should.exist(reply, 'no account returned from register function')
+      account.serializeUser(reply, function (err, id) {
         should.not.exist(err, 'error when performing serialize user account: ' + JSON.stringify(err, null, ' '))
         should.exist(id, 'serializeUser should return an id')
         done()

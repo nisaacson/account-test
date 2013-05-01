@@ -26,6 +26,7 @@
     "account": "0.0.3"
   },
   "dependencies": {
-    "should": "~1.2.2"
+    "should": "~1.2.2",
+    "account": "0.0.3"
   }
 }

@@ -8,8 +8,7 @@ registerCalled = loginCalled = deserializeUserCalled = serializeUserCalled = fal
 
 var profile = {
   email: 'foo@example.com',
-  password: 'barPassword',
-  _id: 'fooID'
+  password: 'barPassword'
 }
 
 var users = {}
@@ -25,8 +24,11 @@ AccountFoo.prototype.register = function (data, cb) {
       stack: new Error().stack
     })
   }
+
+  var profile = data
+  profile._id = require('crypto').randomBytes(32).toString('hex')
   users[email] = profile
-  cb()
+  cb(null, profile)
 }
 AccountFoo.prototype.login = function (data, cb) {
   loginCalled = true

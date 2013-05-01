@@ -1,5 +1,6 @@
 var should = require('should');
 module.exports = function (account, data) {
+  this.timeout(0)
   beforeEach(function (done) {
     account.removeUser(data, done)
   })

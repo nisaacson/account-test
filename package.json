@@ -1,0 +1,31 @@
+{
+  "name": "account-test",
+  "version": "0.0.0",
+  "description": "Test suite for account interface implementations. This module is intended to be used in a mocha-based test suite for a specific account implementation. See the [account-couch](https://github.com/nisaacson/account-couch) module for an example",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "''"
+  },
+  "keywords": [
+    "account",
+    "test"
+  ],
+  "author": "Noah Isaacson",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "eyespect": "~0.1.8",
+    "account": "0.0.3"
+  },
+  "dependencies": {
+    "should": "~1.2.2"
+  }
+}
